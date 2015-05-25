@@ -1,0 +1,99 @@
+<head>
+  <title>ExHackathon</title>
+</head>
+
+<body>
+  <div class="ui page grid">
+    <div class="white column">
+      <h1 class="ui header">People</h1>
+      
+      <div class="ui basic segment">
+        {{> register_hacker_form}}
+      </div>
+      
+      <div class="ui basic segment">
+        <h3 class="ui header">Hackers</h3>
+        <div class="ui cards">
+          {{#each people}}
+          {{> person}}
+          {{/each}}
+        </div>
+      </div>
+      
+    </div>
+    
+
+    
+  </div>
+</body>
+
+
+<template name="person">
+  <div class="card">
+    <div class="content">
+      <div class="header">{{name}}</div>
+      <div class="meta">{{school.name}}</div>
+      <div class="description">
+        Am I supposed to write a description?
+      </div>
+    </div>
+    <button class="ui bottom attached red delete button">
+      <i class="delete icon"></i>
+      Delete
+    </button>
+  </div>
+</template>
+
+<template name="register_hacker_form">
+  <form class="ui form register">
+    <h3 class="ui header">Add Hacker</h3>
+    <h4 class="ui dividing header">Basics</h4>
+    <div class="three fields">
+      <div class="field">
+        <input type="text" name="name" placeholder="Name" required/>
+      </div>
+      <div class="field">
+        <input type="email" name="email" placeholder="Email" required/>
+      </div>
+      <div class="field">
+        <input type="tel" name="phone" placeholder="Cell Number" required/>
+      </div>
+    </div>
+    <h4 class="ui dividing header">School</h4>
+    <div class="three fields">
+      <div class="field">
+        <input type="text" name="school.name" placeholder="School" required/>
+      </div>
+      <div class="field">
+        <input type="text" name="school.year" placeholder="Class Year" required/>
+      </div>
+      <div class="field">
+        <input id="major" type="text" name="school.major_serialized" placeholder="Major(s)" required/>
+      </div>
+    </div>
+    <h4 class="ui dividing header">Meta</h4>
+    <div class="field">
+      <input type="text" name="teammates" placeholder="Teammates"/>
+    </div>
+    <div class="field">
+      <input type="text" name="interests" placeholder="Interests"/>
+    </div>
+    <div class="field">
+      <input type="text" name="links" placeholder="Links"/>
+    </div>
+    <h4 class="ui dividing header">Logistics</h4>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" name="shirt.size" placeholder="T-Shirt Size" required/>
+      </div>
+      <div class="field">
+        <input type="text" name="shirt.gender" placeholder="T-Shirt Gender" required/>
+      </div>
+    </div>
+    <div class="field">
+      <input type="text" name="dietary_restrictions" placeholder="Dietary Restrictions"/>
+    </div>
+    
+    <button class="ui submit button" type="submit">Submit</button>
+  </form>
+</template>

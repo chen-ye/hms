@@ -1,0 +1,17 @@
+# Meteor packages used by this project, one per line.
+# Check this file (and the other files in this directory) into your repository.
+#
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+autopublish
+insecure
+semantic:ui
+flemay:less-autoprefixer
+aldeed:collection2
+doctorpangloss:filter-collections
+fabienb4:autoform-semantic-ui
+aldeed:autoform
+jeremy:selectize
+jeremy:autoform-selectize
