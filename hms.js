@@ -184,7 +184,15 @@ function submitForm(event, collection, callback) {
   entry = {};
 
  $.each($form.serializeArray(), function () {
-  entry[this.name] = this.value;
+  var nameArray = this.name.split(".");
+  var currentObject = entry;
+  for (i = 0; i < nameArray.length - 1; i++) {
+   if (!currentObject[nameArray[i]]) {
+    currentObject[nameArray[i]] = {};
+   }
+   currentObject = currentObject[nameArray[i]];
+  }
+  currentObject[nameArray[nameArray.length - 1]] = this.value;
  });
 
  callback(event, entry);
@@ -325,23 +333,13 @@ if (Meteor.isClient) {
    return submitForm(event, People, function (event, entry) {
     entry.roles = {};
     entry.roles.hacker = true;
-    entry.shirt = {};
-    entry.shirt.size = entry["shirt.size"];
-    delete entry["shirt.size"];
-    entry.shirt.gender = entry["shirt.gender"];
-    delete entry["shirt.gender"];
-    entry.school = {};
-    entry.school.name = entry["school.name"];
-    delete entry["school.name"];
-    entry.school.year = entry["school.year"];
-    delete entry["school.year"];
     entry.school.major = $(event.target).find("input#major")[0].selectize.items;
     console.log(event);
     console.log(entry);
    });
   }
  });
- 
+
  Template.person.events({
   "click .delete": function () {
    People.remove(this._id);
