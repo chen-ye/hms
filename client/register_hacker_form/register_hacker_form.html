@@ -1,0 +1,53 @@
+<template name="register_hacker_form">
+  <form class="ui form register">
+    <h3 class="ui header">Add Hacker</h3>
+    <h4 class="ui dividing header">Basics</h4>
+    <div class="three fields">
+      <div class="field">
+        <input type="text" name="profile.name" placeholder="Name" required/>
+      </div>
+      <div class="field">
+        <input type="email" name="email" placeholder="Email" required/>
+      </div>
+      <div class="field">
+        <input type="tel" name="profile.phone" placeholder="Cell Number" required/>
+      </div>
+    </div>
+    <h4 class="ui dividing header">School</h4>
+    <div class="three fields">
+      <div class="field">
+        <input type="text" name="profile.school.name" placeholder="School" required/>
+      </div>
+      <div class="field">
+        <input type="text" name="profile.school.year" placeholder="Class Year" required/>
+      </div>
+      <div class="field">
+        <input id="major" type="text" name="profile.school.major_serialized" placeholder="Major(s)" required/>
+      </div>
+    </div>
+    <h4 class="ui dividing header">Meta</h4>
+    <div class="field">
+      <input type="text" name="profile.teammates_serialized" placeholder="Teammates"/>
+    </div>
+    <div class="field">
+      <input type="text" name="profile.interests_serialized" placeholder="Interests"/>
+    </div>
+    <div class="field">
+      <input type="text" name="profile.links_serialized" placeholder="Links"/>
+    </div>
+    <h4 class="ui dividing header">Logistics</h4>
+    <div class="two fields">
+      <div class="field">
+        <input type="text" name="profile.shirt.size" placeholder="T-Shirt Size" required/>
+      </div>
+      <div class="field">
+        <input type="text" name="profile.shirt.gender" placeholder="T-Shirt Gender" required/>
+      </div>
+    </div>
+    <div class="field">
+      <input type="text" name="profile.dietary_restrictions" placeholder="Dietary Restrictions"/>
+    </div>
+
+    <button class="ui submit button" type="submit">Submit</button>
+  </form>
+</template>
