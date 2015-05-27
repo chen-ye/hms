@@ -1,5 +1,5 @@
 Template.person.events({
  "click .delete": function () {
-  People.remove(this._id);
+  Meteor.users.remove(this._id);
  }
 });
